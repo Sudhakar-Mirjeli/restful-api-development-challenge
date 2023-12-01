@@ -12,7 +12,7 @@ const limiter = rateLimit({
 });
 
 // Secure endpoint with authentication and rate limiting
-router.get('/all', limiter,
+router.get('/', limiter,
     (req, res, next) => Authmiddleware.authenticate(req, res, next),
     (req, res) => UserController.fetchAllUsers(req, res));
 

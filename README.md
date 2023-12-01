@@ -26,6 +26,25 @@ If you wish to replicate the database setup locally or in another environment, e
 - Set up a MongoDB Atlas Cluster.
 - Configure the connection string in the application's environment variables or configuration files.
 
+To run this application, you need to set the following environment variables:
+
+- **MONGODB_URI**: The connection URI for your MongoDB database.
+- **JWT_SECRET_KEY**: Secret key used for JWT token generation and verification.
+- **PORT** : The port number on which the application will run.
+
+### Steps to Set Environment Variables
+
+1. **PORT**:
+   - Example: `PORT=3000` (You can specify any available port number)
+   - Set the `PORT` variable to the desired port number where the application will listen for incoming requests.
+
+2. **MONGODB_URI**:
+   - Example (for MongoDB Atlas): `MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.example.net/<dbname>`
+   - Obtain the connection URI from your MongoDB provider and replace `<username>`, `<password>`, and `<dbname>` with your actual credentials and database name.
+
+3. **JWT_SECRET_KEY**:
+   - Generate a secure random string to use as the secret key for JWT.
+
 
 ## Installation
 To run the project locally:
