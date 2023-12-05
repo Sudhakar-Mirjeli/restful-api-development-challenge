@@ -3,7 +3,13 @@ const HTTP_STATUS = require('./../constants/http-status')
 const logger = require('../utilities/logger');
 
 
-// Create a new user
+/**
+ * @method UserController:addNewUser
+ * @description Adds a new user
+ * @param {*} req Express request object
+ * @param {*} res Express response object
+ * @returns Returns a successful response with the added user 
+*/
 async function addNewUser(req, res) {
     try {
         logger.info('Inside UserController: addNewUser method')
@@ -12,10 +18,7 @@ async function addNewUser(req, res) {
 
         if (!response)
             throw new Error('Error! Please try after some time.')
-        return res.status(HTTP_STATUS.OK).json({
-            status: response.status,
-            message: response.message,
-        });
+        return res.status(HTTP_STATUS.OK).json(response);
     } catch (error) {
         logger.error(
             `Inside UserController: addNewUser method: Error while adding new user, ${error}`
@@ -23,7 +26,13 @@ async function addNewUser(req, res) {
     };
 }
 
-// Login user
+/**
+ * @method UserController:loginUser
+ * @description login user
+ * @param {*} req Express request object
+ * @param {*} res Express response object
+ * @returns Returns a successful response with the valid user credentials
+*/
 async function loginUser(req, res) {
     try {
         logger.info('Inside UserController: loginUser method')
@@ -32,11 +41,7 @@ async function loginUser(req, res) {
         if (!response)
             throw new CustomError(
                 'Error! Please try after some time.')
-        return res.status(HTTP_STATUS.OK).json({
-            status: response.status,
-            token: response.token,
-            message: response.message,
-        });
+        return res.status(HTTP_STATUS.OK).json(response);
     } catch (error) {
         logger.error(
             `Inside UserController: loginUser method: Error while login, ${error}`
@@ -45,7 +50,13 @@ async function loginUser(req, res) {
 }
 
 
-// finding all users
+/**
+ * @method UserController:fetchAllUsers
+ * @description fetch all users
+ * @param {*} req Express request object
+ * @param {*} res Express response object
+ * @returns Returns a successful response after fetching users data
+*/
 async function fetchAllUsers(req, res) {
     try {
         logger.info('Inside UserController: fetchAllUsers method')
@@ -53,11 +64,7 @@ async function fetchAllUsers(req, res) {
         if (!response)
             throw new CustomError(
                 'Error! Please try after some time.')
-        return res.status(HTTP_STATUS.OK).json({
-            status: response.status,
-            data: response.data,
-            message: response.message,
-        });
+        return res.status(HTTP_STATUS.OK).json(response);
     } catch (error) {
         logger.error(
             `Inside UserController: fetchAllUsers method: Error while fetching users, ${error}`

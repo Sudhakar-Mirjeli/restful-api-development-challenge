@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 const logger = require('../utilities/logger');
 
 /**
-* Adding new user
+* @method UserController:addNewUser
+* @description addig new user to database
+* @returns {Object} Object with the status, message
 */
 async function addNewUser(userRQ) {
     try {
@@ -42,7 +44,9 @@ async function addNewUser(userRQ) {
 
 
 /**
-* login user
+* @method UserController:loginUser
+* @description login user with valid credentials
+* @returns {Object} Object with the status, message & token
 */
 async function loginUser(userRQ) {
     try {
@@ -87,7 +91,9 @@ async function loginUser(userRQ) {
 
 
 /**
-* fetch all users
+* @method UserController:fetchAllUsers
+* @description fetching all users from the database
+* @returns {Object} Object with the status, message & users data
 */
 async function fetchAllUsers() {
     try {
